@@ -1,0 +1,25 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:vue/vue3-recommended" // Cambia esto según tu versión de Vue
+  ],
+  "parserOptions": {
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "@typescript-eslint"// Cambia esto según tu versión de Vue
+  ],
+  "rules": {
+    // Aquí puedes agregar o personalizar reglas específicas
+    "no-console": "warn",
+    "no-unused-vars": "warn",
+    "@typescript-eslint/explicit-module-boundary-types": "off"
+  }
+}
