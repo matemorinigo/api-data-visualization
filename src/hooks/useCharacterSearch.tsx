@@ -20,10 +20,10 @@ const useCharacterSearch = (query: string, pageNumber: number) => {
   useEffect(() => {
     setLoading(true)
     setError(false)
-    let cancel;
+    let cancel
     axios({
       method: 'GET',
-      url: `${BASE_URL}/characters?filter[name_cont]=${query}&page[number]=${pageNumber}`,
+      url: `${BASE_URL}/characters?${query}&page[number]=${pageNumber}`,
       cancelToken: new axios.CancelToken(c=> cancel = c)
     })
             .then(res => {
@@ -32,7 +32,7 @@ const useCharacterSearch = (query: string, pageNumber: number) => {
                 return removeDuplicatesById(combinedCharacters)
               })
 
-              setHasMore(res.data.meta.records > 0)
+              setHasMore(res.data.data.length > 0)
               setLoading(false)
             }).catch(e => {
               if (axios.isCancel(e)) return
