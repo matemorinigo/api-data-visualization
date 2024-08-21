@@ -7,21 +7,21 @@ const SearchBar = (props: {query: string, setQuery, pageNumber: number, setPageN
   const handleSearch = (event) => {
 
     if(props.query !== ''){
-      console.log('entre a !== \'\'')
+    
       if(props.query.includes('name')){
-        console.log('entre a includes')
+        
         const newQuery = props.query.replace(/filter[name_cont]=[a-zA-Z0-9]*/, `filter[name_cont]=${event.target.value}`);
-        console.log(newQuery)
+        
         props.setQuery(newQuery)
       }else{
-        console.log('entre al primer else')
+        
         props.setQuery((prev: string) => `${prev}&filter[name_cont]=${event.target.value}`)
       }
     }else{
-      console.log('entre al segundo else')
+      
       props.setQuery(`filter[name_cont]=${event.target.value}`)
     }
-    console.log(props.query)
+    
     props.setPageNumber(1)
 
     props.setQuery(`filter[name_cont]=${event.target.value}`)

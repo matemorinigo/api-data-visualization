@@ -7,11 +7,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        'hpPrimaryColor': '#3d2f22',
-        'hpSecondaryColor': '#c39a1c',
-        'hpThirdColor': '#8b5b1c',
-        'hpFourthColor': '#704d1c',
-        'hpFontColor': '#efeee9'
+            'hpPrimaryColor': '#3d2f22',
+          'hpSecondaryColor': '#c39a1c',
+          'hpThirdColor': '#8b5b1c',
+          'hpFourthColor': '#704d1c',
+          'hpFontColor': '#efeee9',
+          'hpNavbarColor': '#641e1e',
+          'hpSideBarColor': '#8a2e2e'
       },
       width: {
         '128': '32rem'

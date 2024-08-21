@@ -3,7 +3,7 @@ import FilterElement from "./FilterElement.tsx";
 export type Filter = {
   displayName: string
   propertyName: string
-  options?: {
+  options: {
     displayName:string,
     filter: string,
     value: string

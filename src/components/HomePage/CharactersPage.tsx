@@ -61,8 +61,6 @@ const CHARACTERS_FILTERS = [
 
 const CharactersPage = (props: {query: string, setQuery, pageNumber: number, setPageNumber: React.Dispatch<React.SetStateAction<number>>}) => {
 
-
-
   const {
     loading,
     error,

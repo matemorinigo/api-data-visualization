@@ -18,7 +18,7 @@ export function debouncePromise(func, delay) {
   };
 }
 
-export function removeDuplicatesById(array) {
+export function removeDuplicatesById(array: any[] ) {
   const seen = new Set();
   return array.filter(item => {
     const duplicate = seen.has(item.id);
