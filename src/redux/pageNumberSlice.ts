@@ -12,6 +12,11 @@ export const pageNumberSlice = createSlice({
     name: 'pageNumber',
     initialState,
     reducers: {
-        
+        setPageNumber: (state, action) => {
+            state.pageNumber = action.payload
+        }
     }
 })
+
+export const { setPageNumber } = pageNumberSlice.actions
+export default pageNumberSlice.reducer

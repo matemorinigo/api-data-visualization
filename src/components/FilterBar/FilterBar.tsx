@@ -12,12 +12,12 @@ export type Filter = {
 
 
 
-const FilterBar = (props: {filters: Filter[], query:string, setQuery, setPageNumber}) => {
+const FilterBar = (props: {filters: Filter[]}) => {
   return (
     <div className="m-auto w-2/3 p-3 h-14 -mt-4 pt-9 justify-center items-center flex flex-row">
         <ul className='flex justify-between gap-4'>
           {props.filters.map((filter,index) =>
-            <FilterElement key={index} setPageNumber={props.setPageNumber} filter={filter} query={props.query} setQuery={props.setQuery}/>)}
+            <FilterElement key={index} filter={filter}/>)}
         </ul>
     </div>
   )

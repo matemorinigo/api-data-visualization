@@ -9,9 +9,9 @@ const AliasNames = (props: {aliasNames: string[]}) => {
 
   return (
     <>
-      <section className={`relative flex flex-col rounded-lg bg-hpThirdColor p-1 shadow-sm w-full justify-center items-center ${isExpandable ? 'hover:bg-hpFourthColor' : ''}`}>
+      <section className={`relative flex flex-col rounded-lg bg-hpThirdColor p-1 shadow-sm w-full justify-center items-center`}>
         <div onClick={() => setIsExpanded(prev => !prev)}
-                className={`bg-hpThirdColor p-4 w-full flex items-center ${isExpandable && 'justify-between'} text-lg rounded-lg tracking-wider border-4 border-transparent ${isExpandable && 'active:border-white duration-300 active:text-white hover:bg-hpFourthColor'}`}>
+                className={`bg-hpThirdColor p-4 w-full flex items-center ${isExpandable && 'justify-between'} text-lg rounded-lg tracking-wider border-4 border-transparent ${isExpandable && 'active:border-white duration-300 active:text-whit'}`}>
           <strong className='-ml-4'>Alias names: </strong>
           {
             !isExpandable ? <span className='ml-1'>None</span> : isExpanded ? (<AiOutlineCaretUp/>) : (<AiOutlineCaretDown/>)
