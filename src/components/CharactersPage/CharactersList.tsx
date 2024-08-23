@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import Card, {Character} from "../Card.tsx";
+import Card, {Character} from "../CharacterCard/Card.tsx";
 import NotFound from "../NoElements.tsx";
 import { RootState } from "../../redux/store.ts";
 

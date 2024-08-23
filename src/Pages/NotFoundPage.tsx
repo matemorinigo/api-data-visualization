@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useDispatch } from "react-redux"
-import { modifyPageOpened } from "../../redux/pageOpenedSlice"
+import { modifyPageOpened } from "../redux/pageOpenedSlice"
 
 
 const NotFoundPage = () => {

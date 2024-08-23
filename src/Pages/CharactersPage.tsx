@@ -1,15 +1,15 @@
 import { useCallback, useEffect, useRef } from "react";
-import CharactersList from "../HomePage/CharactersList.tsx";
-import useCharacterSearch from "../../hooks/useCharacterSearch.tsx";
-import FilterBar from "../FilterBar/FilterBar.tsx";
+import CharactersList from "../components/CharactersPage/CharactersList.tsx";
+import useCharacterSearch from "../hooks/useCharacterSearch.tsx";
+import FilterBar from "../components/CharactersPage/FilterBar.tsx";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from '../../redux/store.ts';
-import { CHARACTERS_FILTERS } from "../../constants.ts";
-import { setPageNumber } from "../../redux/pageNumberSlice.ts";
-import ImageLoader from "../ImageLoader.tsx";
-import SearchBar from "../SearchBar.tsx";
-import { modifyPageOpened } from "../../redux/pageOpenedSlice.ts";
-import { deleteFilter } from "../../redux/querySlice.ts";
+import { RootState } from '../redux/store.ts';
+import { CHARACTERS_FILTERS } from "../constants.ts";
+import { setPageNumber } from "../redux/pageNumberSlice.ts";
+import ImageLoader from "../components/ImageLoader.tsx";
+import SearchBar from "../components/CharactersPage/SearchBar.tsx";
+import { modifyPageOpened } from "../redux/pageOpenedSlice.ts";
+import { resetQuery } from "../redux/querySlice.ts";
 
 
 const CharactersPage = () => {
@@ -20,8 +20,8 @@ const CharactersPage = () => {
 
   useEffect(() => {
     dispatch(modifyPageOpened('Characters'))
-    dispatch(deleteFilter({propertyName: 'gender'}))	
-    dispatch(deleteFilter({propertyName: 'house'}))
+    dispatch(resetQuery())
+    dispatch(setPageNumber(1))
   }, [])
 
   const {
@@ -38,7 +38,7 @@ const CharactersPage = () => {
         dispatch(setPageNumber(pageNumber.pageNumber + 1))
     })
     if (node) observer.current.observe(node)
-  }, [loading.loading, hasMore])
+  }, [loading.loading, hasMore, dispatch, pageNumber.pageNumber])
 
   return (
     <>

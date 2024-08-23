@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { modifyPageOpened } from '../../redux/pageOpenedSlice'
+import { modifyPageOpened } from '../redux/pageOpenedSlice'
 import { useDispatch } from 'react-redux'
 
 const SpellsPage = () => {

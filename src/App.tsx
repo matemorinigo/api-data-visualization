@@ -1,10 +1,10 @@
 import Navbar from "./components/Navbar.tsx";
-import CharactersPage from "./components/Pages/CharactersPage.tsx";
-import HomePage from "./components/Pages/HomePage.tsx";
-import SpellsPage from "./components/Pages/SpellsPage.tsx";
+import CharactersPage from "./Pages/CharactersPage.tsx";
+import HomePage from "./Pages/HomePage.tsx";
+import SpellsPage from "./Pages/SpellsPage.tsx";
 import MainLayout from "./components/MainLayout.tsx";
-import NotFoundPage from "./components/Pages/NotFoundPage.tsx";
-import CharacterPage from "./components/Pages/CharacterPage.tsx";
+import NotFoundPage from "./Pages/NotFoundPage.tsx";
+import CharacterPage from "./Pages/CharacterPage.tsx";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
  

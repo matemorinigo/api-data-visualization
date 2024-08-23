@@ -48,7 +48,7 @@ const useCharacterSearch = () => {
       })
 
     return () => cancel && cancel()
-  }, [query.query, pageNumber.pageNumber])
+  }, [query.query, pageNumber.pageNumber, dispatch])
 
   return { error, characters, hasMore }
 }

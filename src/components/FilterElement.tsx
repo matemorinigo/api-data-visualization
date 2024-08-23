@@ -1,10 +1,10 @@
-import {Filter} from "./FilterBar.tsx";
+import {Filter} from "./CharactersPage/FilterBar.tsx";
 import {useEffect, useState} from "react";
 import {AiOutlineCaretDown, AiOutlineCaretUp} from "react-icons/ai";
 import { useDispatch, useSelector } from 'react-redux';
-import { modifyQuery, deleteFilter } from '../../redux/querySlice.ts';
-import { setPageNumber } from '../../redux/pageNumberSlice.ts';
-import { RootState } from '../../redux/store.ts';
+import { modifyQuery, deleteFilter } from '../redux/querySlice.ts';
+import { setPageNumber } from '../redux/pageNumberSlice.ts';
+import { RootState } from '../redux/store.ts';
 
 
 const FilterElement = (props: {filter: Filter}) => {
@@ -21,8 +21,9 @@ const FilterElement = (props: {filter: Filter}) => {
 
   const handleClick = (propertyName:string, option: {displayName: string, filter: string, value: string}) => {
 
-    if(query.query.includes(`${propertyName}`)){
+    if(query.query.includes(`${propertyName}`) && query.query.includes(`${option.value}`)){
       dispatch(deleteFilter({propertyName: props.filter.propertyName}))
+      dispatch(setPageNumber(1))
       setSelectedOption('')
     }else{
       dispatch(modifyQuery({
@@ -39,12 +40,12 @@ const FilterElement = (props: {filter: Filter}) => {
 
 
   return (
-    <section className='relative z-10 flex flex-col items-center w-[10rem] rounded-lg'>
-      <button onClick={()=>setIsOpen(prev=>!prev)} className='bg-hpThirdColor h-1/3 p-4 w-full flex items-center justify-between font-bold text-lg rounded-lg tracking-wider border-4 border-transparent active:border-white duration-300 active:text-white'>
+    <section className='relative z-10 flex flex-col items-center w-[8rem] rounded-lg'>
+      <button onClick={()=>setIsOpen(prev=>!prev)} className='bg-gradient-to-tr shadow-md from-hpThirdColor to-slate-600 h-10 -mt-5 p-4 w-full flex items-center justify-between font-bold text-sm rounded-lg tracking-wider border-4 border-transparent active:border-white duration-300 active:text-white'>
         {selectedOption === '' ? props.filter.displayName : selectedOption }
         {isOpen ? (<AiOutlineCaretUp/>):(<AiOutlineCaretDown/>)}
         {isOpen && (
-          <div className='bg-hpThirdColor absolute top-14 gap-2 -ml-4 -my-2 flex flex-col items-start rounded-lg p-2 w-full'>
+          <div className='bg-hpThirdColor absolute top-full gap-2 -ml-4  flex flex-col items-start rounded-lg p-2 w-full'>
             {props.filter.options?.map((option,index)=>{
               return (
                 <div key={index} onClick={()=>handleClick(props.filter.propertyName, option)} className='flex w-full justify-between p-0.5 hover:bg-hpFourthColor cursor-pointer '>
