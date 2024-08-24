@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { setLoading } from '../redux/loadingSlice'
 import axios, { Canceler } from 'axios'
 import { BASE_URL } from '../constants'
 import { CharacterProps } from '../Pages/CharacterPage'
 import { useNavigate } from 'react-router-dom'
-import { RootState } from '../redux/store'
+
 
 export const useFetchCharacter = (characterId?: string) => {
     const dispatch = useDispatch()
