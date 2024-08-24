@@ -19,7 +19,7 @@ export interface Character {
 }
 
 
-const Card = (props: { char: Character, innerRef?: ((node: HTMLElement | null) => void) | undefined, className?: string }) => {
+const Card = (props: { char: Character, innerRef?: ((node: HTMLElement) => void), className?: string }) => {
     const charAttrs = props.char.attributes
     const x = useMotionValue(0)
     const y = useMotionValue(0)
@@ -46,7 +46,7 @@ const Card = (props: { char: Character, innerRef?: ((node: HTMLElement | null) =
     }
 
     return (
-        <motion.div ref={props.innerRef ? props.innerRef : null} style={{
+        <motion.div ref={props.innerRef && props.innerRef} style={{
             rotateX,
             rotateY,
             transformStyle: "preserve-3d"

@@ -3,7 +3,7 @@ import Card, {Character} from "../CharacterCard/Card.tsx";
 import NotFound from "../NoElements.tsx";
 import { RootState } from "../../redux/store.ts";
 
-const CharactersList = (props: { characters: Character[], lastCharacterElementRef: ((node:HTMLElement)=>void)|null}) => {
+const CharactersList = (props: { characters: Character[], lastCharacterElementRef: ((node:HTMLElement)=>void)}) => {
   const loading = useSelector((state: RootState) => state.loading)
   
   return(

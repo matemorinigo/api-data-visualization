@@ -5,12 +5,6 @@ import { modifyPageOpened } from "../redux/pageOpenedSlice"
 import { useFetchCharacter } from "../hooks/useFetchCharacter"
 import { RootState } from "../redux/store"
 import ImageLoader from "../components/ImageLoader"
-import Image from "../components/Image"
-import CharacterData from "../components/CharacterInfo/CharacterData"
-import DropdownList from "../components/CharacterInfo/DropdownList"
-import { setPageNumber } from "../redux/pageNumberSlice"
-import BasicInfo from "../components/CharacterPage/BasicInfo"
-import DetailedInfo from "../components/CharacterPage/DetailedInfo"
 import CharacterDetailCard from "../components/CharacterPage/CharacterDetailCard"
 export interface CharacterProps {
     id: string
