@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { FiMenu } from "react-icons/fi";
 import { AiOutlineClose } from 'react-icons/ai';
-import logoUrl from '../../logo.ico'
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../redux/store';

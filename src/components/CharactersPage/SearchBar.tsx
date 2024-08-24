@@ -1,13 +1,12 @@
 import { setPageNumber } from "../../redux/pageNumberSlice.ts";
 import { modifyQuery } from "../../redux/querySlice.ts";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../redux/store.ts";
+import { useDispatch} from "react-redux";
+
 
 
 const SearchBar = () => {
 
   const dispatch = useDispatch()
-  const query = useSelector((state: RootState) => state.query)
 
   return (
           <div className='flex my-3 -mb-1 justify-center items-center'>

@@ -11,7 +11,6 @@ export const useFetchCharacter = (characterId?: string) => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const [data, setData] = useState<CharacterProps|null>()
-    const loading = useSelector((state: RootState) => state.loading)
 
     useEffect(() => {
         dispatch(setLoading(true))

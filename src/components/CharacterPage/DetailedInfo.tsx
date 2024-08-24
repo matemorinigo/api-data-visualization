@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import DropdownList from '../CharacterInfo/DropdownList'
 import { CharacterProps } from '../../Pages/CharacterPage'
 import CharacterData from '../CharacterInfo/CharacterData'

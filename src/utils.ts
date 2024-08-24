@@ -1,5 +1,3 @@
-import axios from 'axios';
-import {BASE_URL} from './constants';
 
 export function removeDuplicatesById(array) {
   const seen = new Set();
