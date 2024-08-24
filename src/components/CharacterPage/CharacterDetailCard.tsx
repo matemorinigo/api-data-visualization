@@ -3,7 +3,7 @@ import BasicInfo from './BasicInfo'
 import DetailedInfo from './DetailedInfo'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 
-const CharacterDetailCard = (props: {data: CharacterProps}) => {
+const CharacterDetailCard = (props: { data: CharacterProps }) => {
 
     const x = useMotionValue(0)
     const y = useMotionValue(0)
@@ -32,23 +32,19 @@ const CharacterDetailCard = (props: {data: CharacterProps}) => {
 
     return (
         <>
-            <motion.div style={{
-            rotateX,
-            rotateY,
-            transformStyle: "preserve-3d"
-        }} className={`bg-gradient-to-br from-slate-600 to-slate-800 mx-36 rounded-lg p-2`} onMouseMove={handleMouseMove}>
-            <div style={{
-                transform: "translateZ(75px)",
-                transformStyle: "flat"
-            }} className="bg-gradient-to-br from-hpSecondaryColor to-slate-700 flex md:flex-row flex-col w-full h-full mx-auto rounded-xl p-5">
-                <BasicInfo char={props.data} />
-                <DetailedInfo char={props.data} />
-            </div>
-
-
-        </motion.div>
-    
-        
+            <motion.div
+                style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+                className="bg-gradient-to-br from-slate-600 to-slate-800 mx-4 mt-auto md:mx-36 rounded-lg p-2"
+                onMouseMove={handleMouseMove}
+            >
+                <div
+                    style={{ transform: "translateZ(75px)", transformStyle: "flat" }}
+                    className="bg-gradient-to-br from-hpSecondaryColor to-slate-700 flex flex-col md:flex-row w-full h-full mx-auto rounded-xl p-5"
+                >
+                    <BasicInfo char={props.data} />
+                    <DetailedInfo char={props.data} />
+                </div>
+            </motion.div>
         </>
     )
 }
