@@ -20,10 +20,6 @@ const Navbar = () => {
     {
       label: 'Characters',
       link: '/characters'
-    },
-    {
-      label: 'Spells',
-      link: '/spells'
     }
   ]
 
@@ -50,7 +46,7 @@ const Navbar = () => {
 
       {/* Sidebar "mobile" */}
       <div className={`fixed z-20 h-full w-screen lg:hidden bg-black/50 backdrop-blur-sm top-0 right-0 -translate-x-full transition-all ${isSideMenuOpen ? 'translate-x-0' : ''}`}>
-        <section className='text-black bg-hpSideBarColor flex-col absolute left-0 top-0 h-screen p-8 gap-8 z-50 flex w-56'>
+        <section className='text-black bg-gradient-to-t from-slate-600 to-slate-800 flex-col absolute left-0 top-0 h-screen p-8 gap-8 z-50 flex w-56'>
           <AiOutlineClose onClick={() => setIsSideMenuOpen(false)} className='mt-0 mb-8 text-3xl cursor-pointer' />
           {navLinks.map((navLink: { label: string, link: string }, index) => (
             <Link key={index} to={navLink.link}>

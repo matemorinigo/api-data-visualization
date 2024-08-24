@@ -1,16 +1,18 @@
-import {useState} from "react";
+import {useRef, useState} from "react";
 import {AiOutlineCaretDown, AiOutlineCaretUp} from "react-icons/ai";
+import useClickOutside from "../../hooks/useClickOutside";
 
 
 const DropdownList = (props: {propertyName: string, elements: string[], bg?: string, hoverBg?: string}) => {
   const [isExpanded, setIsExpanded] = useState(false)
   const isExpandable = props.elements.length > 0
-
+  const menu = useRef<HTMLDivElement>(null)
+  useClickOutside(menu, () => setIsExpanded(false))
 
   return (
     <>
-      <section className={`relative flex flex-col rounded-lg bg-gradient-to-tr from-hpThirdColor to-slate-600 p-1 shadow-sm w-full justify-center items-center mx-auto transition-transform duration-300 hover:scale-105 hover:shadow-lg ${isExpanded ? 'z-50': 'z-0'}`}>
-        <div onClick={() => setIsExpanded(prev => !prev)}
+      <section  className={`relative flex flex-col rounded-lg bg-gradient-to-tr from-hpThirdColor to-slate-600 p-1 shadow-sm w-full justify-center items-center mx-auto transition-transform duration-300 hover:scale-105 hover:shadow-lg ${isExpanded ? 'z-50': 'z-0'}`}>
+        <div ref={menu}  onClick={() => setIsExpanded(prev => !prev)}
                 className={`p-4 w-full flex items-center ${isExpandable && 'justify-between'} text-lg rounded-lg tracking-wider border-4 border-transparent ${isExpandable && 'active:border-white duration-300 active:text-whit'}`}>
           <strong className='-ml-4'>{props.propertyName}:  </strong>
           {

@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { useParams} from "react-router-dom"
+import { useNavigate, useParams} from "react-router-dom"
 import { modifyPageOpened } from "../redux/pageOpenedSlice"
 import { useFetchCharacter } from "../hooks/useFetchCharacter"
 import { RootState } from "../redux/store"
@@ -11,6 +11,7 @@ import DropdownList from "../components/CharacterInfo/DropdownList"
 import { setPageNumber } from "../redux/pageNumberSlice"
 import BasicInfo from "../components/CharacterPage/BasicInfo"
 import DetailedInfo from "../components/CharacterPage/DetailedInfo"
+import CharacterDetailCard from "../components/CharacterPage/CharacterDetailCard"
 export interface CharacterProps {
     id: string
     type: string
@@ -46,6 +47,7 @@ const CharacterPage = () => {
     const { characterId } = useParams<{ characterId: string }>()
     const loading = useSelector((state: RootState) => state.loading)
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const { data } = useFetchCharacter(characterId)
 
@@ -54,24 +56,31 @@ const CharacterPage = () => {
     }, [dispatch])
 
 
-    if (loading.loading) {
+    useEffect(() => {
+        if (!loading.loading && data===null) {
+            // Si no se está cargando y no hay datos, redirige a la página de error
+            navigate('/404')
+        }
+    }, [loading.loading, data, navigate])
+
+
+    if (loading.loading || data===undefined) {
         return <ImageLoader />;
     }
 
 
     if (!data) {
-        return <div>Character not found.</div>;
+        console.log('xd del if no del hook')
     }else{
         return (
             <div className="flex flex-col rounded">
-                <div className="bg-gray-700 flex flex-row w-4/6 h-full mx-auto rounded-xl p-5">
-                    <BasicInfo char={data}/>
-                    <DetailedInfo char={data}/>
-                </div>
+                <CharacterDetailCard data={data}/>
                 {loading.loading && <ImageLoader />}
             </div>
         )
     }    
+
+   
 }
 
 export default CharacterPage

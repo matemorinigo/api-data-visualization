@@ -1,16 +1,19 @@
 import {Filter} from "./CharactersPage/FilterBar.tsx";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {AiOutlineCaretDown, AiOutlineCaretUp} from "react-icons/ai";
 import { useDispatch, useSelector } from 'react-redux';
 import { modifyQuery, deleteFilter } from '../redux/querySlice.ts';
 import { setPageNumber } from '../redux/pageNumberSlice.ts';
 import { RootState } from '../redux/store.ts';
+import useClickOutside from "../hooks/useClickOutside.tsx";
 
 
 const FilterElement = (props: {filter: Filter}) => {
 
   const [isOpen, setIsOpen] = useState(false)
   const [selectedOption, setSelectedOption] = useState('')
+  const menu = useRef(null)
+  useClickOutside(menu, ()=>setIsOpen(false))
 
   const dispatch = useDispatch()
   const query = useSelector((state: RootState) => state.query)
@@ -40,7 +43,7 @@ const FilterElement = (props: {filter: Filter}) => {
 
 
   return (
-    <section className='relative z-10 flex flex-col items-center w-[8rem] rounded-lg'>
+    <section ref={menu} className='relative z-10 flex flex-col items-center w-[8rem] rounded-lg'>
       <button onClick={()=>setIsOpen(prev=>!prev)} className='bg-gradient-to-tr shadow-md from-hpThirdColor to-slate-600 h-10 -mt-5 p-4 w-full flex items-center justify-between font-bold text-sm rounded-lg tracking-wider border-4 border-transparent active:border-white duration-300 active:text-white'>
         {selectedOption === '' ? props.filter.displayName : selectedOption }
         {isOpen ? (<AiOutlineCaretUp/>):(<AiOutlineCaretDown/>)}
