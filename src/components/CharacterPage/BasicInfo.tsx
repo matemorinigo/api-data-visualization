@@ -4,7 +4,7 @@ import CharacterData from '../CharacterInfo/CharacterData'
 
 const BasicInfo = (props: {char: CharacterProps}) => {
     return (
-        <div className="flex flex-col my-auto gap-4 bg-gray-700 p-4 w-full md:w-2/6 rounded-l-xl rounded-r-0">
+        <div className="flex flex-col my-auto gap-4 bg-gray-700 p-4 w-full lg:w-2/6 rounded-l-xl rounded-r-0">
             <Image animateOnHover={true} src={props.char.attributes.image} />
             <div className="bg-gray-600 w-full rounded-xl border-gray-700 shadow-lg border text-center">
                 <strong className="p-2 justify-normal text-xl">{props.char.attributes.name}</strong>
