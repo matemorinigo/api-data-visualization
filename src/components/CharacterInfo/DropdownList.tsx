@@ -21,7 +21,7 @@ const DropdownList = (props: {propertyName: string, elements: string[], bg?: str
 
           {(isExpanded && isExpandable) && (
             <div
-              className={`${props.bg ? props.bg : 'bg-hpThirdColor'} absolute top-20 gap-2 -ml-6 -my-2 flex flex-col items-start rounded-lg p-2 w-full z-50`}>
+              className={`${props.bg ? props.bg : 'bg-hpThirdColor'} absolute top-20 gap-2 -ml-6 -my-2 flex flex-col items-start rounded-lg p-2 w-full max-h-full overflow-y-scroll z-50`}>
               {props.elements.map((option, index) => {
                 return (
                   <div
