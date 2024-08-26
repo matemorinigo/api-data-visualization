@@ -52,7 +52,6 @@ const CharacterPage = () => {
 
     useEffect(() => {
         if (!loading.loading && data===null) {
-            // Si no se está cargando y no hay datos, redirige a la página de error
             navigate('/404')
         }
     }, [loading.loading, data, navigate])
@@ -62,17 +61,13 @@ const CharacterPage = () => {
         return <ImageLoader />;
     }
 
-
-    if (!data) {
-        console.log('xd del if no del hook')
-    }else{
-        return (
-            <div className="flex flex-col rounded">
-                <CharacterDetailCard data={data}/>
-                {loading.loading && <ImageLoader />}
-            </div>
-        )
-    }    
+ 
+    return (
+        <div className="flex flex-col rounded">
+            <CharacterDetailCard data={data}/>
+            {loading.loading && <ImageLoader />}
+        </div>
+    )
 
    
 }
