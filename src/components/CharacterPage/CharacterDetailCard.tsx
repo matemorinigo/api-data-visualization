@@ -39,7 +39,7 @@ const CharacterDetailCard = (props: { data: CharacterProps }) => {
             >
                 <div
                     style={{ transform: "translateZ(75px)", transformStyle: "flat" }}
-                    className="bg-gradient-to-br from-hpSecondaryColor to-slate-700 flex flex-col md:flex-row w-full h-full mx-auto rounded-xl p-5"
+                    className="bg-gradient-to-br from-hpSecondaryColor to-slate-700 flex flex-col lg:flex-row w-full h-full mx-auto rounded-xl p-5"
                 >
                     <BasicInfo char={props.data} />
                     <DetailedInfo char={props.data} />
